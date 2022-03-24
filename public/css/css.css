@@ -1,0 +1,74 @@
+@charset "utf-8";
+/*Reset*/
+*, *::before, *::after{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-weight:normal;
+	font-family: monda, sans-serif;
+}
+@font-face {
+	font-family: monda;
+	src: url("../fonts/monda.woff");
+  }
+html{font-size:62.5%;scroll-behavior: smooth;}
+body{
+    background-color: #EDEDED;
+    font-size:1.6rem;
+	scroll-behavior:smooth;
+}
+.limiter{
+    width: 900px;
+    margin: 50px auto;
+}
+
+.form{
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px -5px rgba(0,0,0,.1);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.form input,
+.form textarea{
+    position: relative;
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	padding: .5rem 1rem;
+	margin-top: .5rem;
+	border: .1rem solid #ddd;
+	color: #666;
+	font-size:2rem;
+	outline: none;
+}
+.form textarea{
+    min-height: 150px;
+}
+.form input::placeholder,
+.form textarea::placeholder{
+    color:#aaa;
+    font-size: 16px;
+}
+
+.button-holder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+.button{
+    width: inherit;
+	padding: .7rem 2rem;
+	background-color: #0e49b6;
+	font-size: 1.7rem;
+	border: none;
+	color: rgb(199, 230, 240);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

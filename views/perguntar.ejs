@@ -1,0 +1,11 @@
+
+<%- include('partials/header.ejs') %>
+<form class="form form-make-question" action="index" method="POST">
+    <input type="text" placeholder="Título da pergunta" required autofocus>
+    <textarea placeholder="Descrição da pergunta" required></textarea>
+    <div class="button-holder">
+        <span></span>
+        <button class="button" type="submit">Publicar pergunta</button>
+    </div>
+</form>
+<%- include('partials/footer.ejs') %>
