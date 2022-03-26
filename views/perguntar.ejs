@@ -1,20 +1,24 @@
 <%- include('partials/header.ejs') %>
 <body>
-    <%- include('partials/navbar.ejs') %>
-    <section class="delimiter section-post-question">
-        <form class="form form-ask-question" action="/gravarpergunta" method="POST">
-            <div class="box-title">
-                <h2>Pergunte</h2>
-            </div>
-            <div class="box-body">
-                <input type="text" name="titulo" placeholder="Insira o título da pergunta" class="form-element" required autofocus>
-                <textarea name ="descricao" placeholder="Descreva a pergunta" class="form-element" required></textarea>
-            </div>
-            <div class="box-footer">
-                <span></span>
-                <button class="button" type="submit">Perguntar</button>
+    <br><div class="container">
+        <div class="d-flex justify-content-between">
+            <span></span>
+            <a href="/" class="btn btn-primary">Lista de Perguntas</a>
+        </div>
+        
+        <hr>
+        <form action="/gravarpergunta" method="POST">
+            <div class="card">
+                <div class="card-body">
+                    <input type="text" name="titulo" class="form-control form-control-lg" placeholder="Título da sua pergunta" required autofocus><br>
+                    <textarea name="descricao" class="form-control form-control-lg"  rows="3" placeholder="Descreva a sua pergunta aqui" required></textarea>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <span></span>
+                    <button type="submit" class="btn btn-primary btn-lg">Postar pergunta</button>
+                </div>
             </div>
         </form>
-    </section>
+    </div>
 </body>
 <%- include('partials/footer.ejs') %>

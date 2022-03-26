@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+<body>
+    <br><div class="container">
+        <div class="d-flex justify-content-between">
+            <span></span>
+            <a href="/" class="btn btn-primary">Lista de Perguntas</a>
+        </div>
+        
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><%= pergunta.titulo %></h4>
+            </div>
+            <div class="card-body">
+                <p><%= pergunta.descricao %></p>
+            </div>
+        </div><br>
+        
+        <div class="card">
+            <div class="card-body">
+                <textarea name="descricao" class="form-control form-control-lg"  rows="3" placeholder="Digite a sua resposta aqui" autofocus required></textarea>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <span></span>
+                <a href="/pergunta/<%= pergunta.id %>" class="btn btn-primary btn-lg">Responder</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+ 
+ 
