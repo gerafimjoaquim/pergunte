@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const connection = require('./database/database')
 const Pergunta = require('./database/Pergunta')
-const { redirect, get } = require('express/lib/response')
+const Resposta = require('./database/Resposta')
 const app = express()
 
 
@@ -39,8 +39,14 @@ app.get('/pergunta/:id',(req,res) =>{
             return
         }
 
-        res.render('pergunta',{
-            pergunta:pergunta
+        Resposta.findAll({
+            where: {idPergunta: pergunta.id},
+            order:[['id','DESC']]
+        }).then(respostas => {
+            res.render('pergunta',{
+                pergunta: pergunta,
+                respostas: respostas
+            })
         })
     })
 })
@@ -59,6 +65,18 @@ app.post('/gravarpergunta', (req, res) => {
         descricao:descricao
     }).then(() => {
         res.redirect('/')
+    })
+})
+
+app.post('/responder',(req, res) => {
+    const pergunta = req.body.pergunta
+    const corpo = req.body.corpo
+
+    Resposta.create({
+        idPergunta:pergunta,
+        corpo:corpo
+    }).then(() => {
+        res.redirect(`/pergunta/${pergunta}`)
     })
 })
 

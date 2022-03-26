@@ -7,24 +7,29 @@
         </div>
         
         <hr>
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title"><%= pergunta.titulo %></h4>
-            </div>
-            <div class="card-body">
-                <p><%= pergunta.descricao %></p>
-            </div>
-        </div><br>
-        
-        <div class="card">
-            <div class="card-body">
-                <textarea name="descricao" class="form-control form-control-lg"  rows="3" placeholder="Digite a sua resposta aqui" autofocus required></textarea>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
+        <h2 class="card-title"><%= pergunta.titulo %></h2>
+        <p><%= pergunta.descricao %></p><hr><br>
+        <form action="/responder" method="POST">
+            <div class="card">
+                <div class="card-body">
+                    <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
+                    <textarea name="corpo" class="form-control form-control-lg"  rows="3" placeholder="Digite a sua resposta aqui" autofocus required></textarea>
+                </div>
+            </div><br>
+            <div class="d-flex justify-content-between">
                 <span></span>
-                <a href="/pergunta/<%= pergunta.id %>" class="btn btn-primary btn-lg">Responder</a>
+                <button type="submit" class="btn btn-primary btn-lg">Responder</button>
             </div>
-        </div>
+        </form>
+        <br><hr><br>
+        <% respostas.forEach(resposta => {%>
+           <div class="card">
+                <div class="card-body">
+                    <p><%= resposta.corpo %></p>
+                    <span><%= resposta.createdAt.toLocaleString() %></span>
+                </div>
+            </div><br>
+        <% }) %>
     </div>
 </body>
 
