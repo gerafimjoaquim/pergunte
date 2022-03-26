@@ -13,8 +13,9 @@
                     <h4 class="card-title"><%= pergunta.titulo %></h4>
                 </div>
                 
-                <div class="card-footer d-flex justify-content-between">
+                <div class="card-footer d-flex justify-content-end align-items-center">
                     <span><%= pergunta.createdAt.toLocaleString() %></span>
+                    <a href="/pergunta/<%= pergunta.id %>" class="btn btn-danger mx-3">Ver respostas</a>
                     <a href="/pergunta/<%= pergunta.id %>" class="btn btn-primary">Responder</a>
                 </div>
             </div><br>
