@@ -5,13 +5,6 @@ const Pergunta = require('./database/Pergunta')
 const Resposta = require('./database/Resposta')
 const app = express()
 
-
-//connection.authenticate()
-    //.then(() => {
-        //console.log('Autenticado')
-    //})
-    //.catch(error => console.log(`Erro na autenticação: ${error}`))
-
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: false}))
